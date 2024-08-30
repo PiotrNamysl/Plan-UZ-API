@@ -1,16 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
+using PlanUzApi.Models;
 
 namespace PlanUzApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-public class ScheduleController : ControllerBase
+public class ScheduleController : BaseController
 {
     private readonly IScheduleService _scheduleService;
 
-    [HttpGet(Name = "GetWebsiteSourceCode")]
-    public string 
+    public ScheduleController(IScheduleService scheduleService)
     {
-       
+        _scheduleService = scheduleService;
     }
+
+    // [HttpGet("GetWebsiteSourceCode")]
+    // public async Task<string> GetWebsiteSourceCode([FromQuery] string websiteUrl)
+    // {
+    //     return (await _scheduleService.GetWholeWebsiteSourceCode(websiteUrl)).Data;
+    // }
+
+    [HttpGet("GetCourses")]
+    public async Task<IResult<IEnumerable<Course>>> GetCourses() => await _scheduleService.GetCourses();
 }
