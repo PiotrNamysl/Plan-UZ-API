@@ -9,15 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49eece6d-1466-4560-9013-6af6c1221fd1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PlanUzApi/Models/Course.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlanUzApi/Result.cs" afterDir="false" />
+    <list default="true" id="49eece6d-1466-4560-9013-6af6c1221fd1" name="Changes" comment="GetCourses endpoint finished (to be corrected later)">
+      <change afterPath="$PROJECT_DIR$/PlanUzApi/Models/BasicLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PlanUzApi/Models/CourseGroups.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PlanUzApi/Models/Group.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanUzApi/Controllers/ScheduleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Controllers/ScheduleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanUzApi/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Controllers/BaseController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanUzApi/PlanUzApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/PlanUzApi.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanUzApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanUzApi/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/Models/Course.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Models/Course.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Result.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanUzApi/Services/Abstraction/IScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Services/Abstraction/IScheduleService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs" afterDir="false" />
     </list>
@@ -36,7 +35,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/2f1db20456007c9515068a35a65afdf99af70bc6/src/Mvc/Mvc.Core/src/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2b917c507d64d0980727dbdd83b6585c8f8a0/75/e6c53997/String.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
   "associatedIndex": 7
@@ -122,15 +123,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725037550678</updated>
-      <workItem from="1725037551708" duration="5752000" />
+      <workItem from="1725037551708" duration="12383000" />
     </task>
+    <task id="LOCAL-00001" summary="GetCourses endpoint finished (to be corrected later)">
+      <option name="closed" value="true" />
+      <created>1725045352592</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725045352592</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="GetCourses endpoint finished (to be corrected later)" />
+    <option name="LAST_COMMIT_MESSAGE" value="GetCourses endpoint finished (to be corrected later)" />
   </component>
 </project>

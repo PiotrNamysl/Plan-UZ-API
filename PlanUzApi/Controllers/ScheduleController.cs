@@ -21,4 +21,7 @@ public class ScheduleController : BaseController
 
     [HttpGet("GetCourses")]
     public async Task<IResult<IEnumerable<Course>>> GetCourses() => await _scheduleService.GetCourses();
+
+    [HttpGet("GetCourseGroups")]
+    public async Task<IResult<IEnumerable<Group>>> GetCourseGroups() => await _scheduleService.GetCourseGroups();
 }
