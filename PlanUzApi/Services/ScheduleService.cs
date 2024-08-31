@@ -1,4 +1,5 @@
 using System.Data;
+using System.Globalization;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
 using PlanUzApi.Models;
@@ -65,51 +66,30 @@ public class ScheduleService : IScheduleService
             var browser = new HtmlWeb();
             var htmlDocument = await browser.LoadFromWebAsync(groupUrl);
 
-            var trElements2 = htmlDocument.GetElementbyId("table_details");
+            var classesAsStringList = htmlDocument.GetElementbyId("table_details").InnerText.Split("\r\n\r\n").ToList();
+            classesAsStringList.RemoveAt(0);
+            classesAsStringList.RemoveAt(classesAsStringList.Count - 1);
 
-            
-            var trElements = trElements2
-                .SelectNodes("//tr")
-                .Where(n => n.OuterHtml.Contains("odd") || n.OuterHtml.Contains("even"))
-                .Select(tr => tr.OuterHtml);
-
-            foreach (var trElement in trElements)
+            foreach (var item in classesAsStringList)
             {
-                var trElementAsHtmlDoc = new HtmlDocument();
-                trElementAsHtmlDoc.LoadHtml(trElement);
+                var classAsList = item.Split("\r\n").ToList().Select(c => c.Replace("  ", "").Replace("&nbsp;", null)).ToList();
+                classAsList.RemoveAt(0);
+                classAsList.RemoveAt(classAsList.Count - 1);
 
-                var trElementAsList = trElementAsHtmlDoc.DocumentNode.SelectNodes("//td").Select(n => n.InnerHtml).ToList();
-                List<string> finalClass = [];
-                foreach (var element in trElementAsList)
+                var newClass = new ClassSession
                 {
-                    if (element.Contains("<"))
-                    {
-                        var newElement = element.Replace("<label", "<a");
-                        var newElementAsHtmlDoc = new HtmlDocument();
-                        newElementAsHtmlDoc.LoadHtml(newElement);
-                        var finalNewElement = newElementAsHtmlDoc.DocumentNode.SelectNodes("//a").Select(n => n.InnerHtml);
-                        finalClass.Add(finalNewElement.First());
-                    }
-                    else
-                        finalClass.Add(element.Normalize());
-                }
-
-                var typeOfClass = Helpers.GetTypeOfClass(finalClass[4]);
-
-                var classSession = new ClassSession
-                {
-                    Subgroup = finalClass[0],
-                    SinceDateTime = DateTime.Parse(finalClass[1]).ToUniversalTime(),
-                    ToDateTime = DateTime.Parse(finalClass[2]).ToUniversalTime(),
-                    Subject = finalClass[3],
-                    TypeOfClass = typeOfClass,
-                    Teacher = finalClass[5],
-                    Location = finalClass[6]
+                    Day = DateOnly.Parse(classAsList[0]),
+                    Subgroup = string.IsNullOrWhiteSpace(classAsList[2]) ? null : classAsList[2],
+                    Since = TimeOnly.Parse(classAsList[3]),
+                    To = TimeOnly.Parse(classAsList[4]),
+                    Subject = classAsList[5],
+                    TypeOfClass = Helpers.GetTypeOfClass(classAsList[6]),
+                    Teacher = classAsList[7],
+                    Location = classAsList[8]
                 };
-                
-                groupClasses.Add(classSession);
+                groupClasses.Add(newClass);
             }
-            
+
             return Result<IEnumerable<ClassSession>>.Success(groupClasses);
         }
         catch (Exception exception)

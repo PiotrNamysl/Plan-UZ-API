@@ -9,13 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49eece6d-1466-4560-9013-6af6c1221fd1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PlanUzApi/Helpers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlanUzApi/Models/ClassSession.cs" afterDir="false" />
+    <list default="true" id="49eece6d-1466-4560-9013-6af6c1221fd1" name="Changes" comment="not working properly, to change (manually searching through html nodes, then found out that inner text exists...)">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanUzApi/Controllers/ScheduleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Controllers/ScheduleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanUzApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanUzApi/Services/Abstraction/IScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Services/Abstraction/IScheduleService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/Models/ClassSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Models/ClassSession.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +123,7 @@
       <updated>1725037550678</updated>
       <workItem from="1725037551708" duration="15566000" />
       <workItem from="1725061390142" duration="1057000" />
-      <workItem from="1725093325039" duration="4941000" />
+      <workItem from="1725093325039" duration="7056000" />
     </task>
     <task id="LOCAL-00001" summary="GetCourses endpoint finished (to be corrected later)">
       <option name="closed" value="true" />
@@ -145,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725052707265</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="not working properly, to change (manually searching through html nodes, then found out that inner text exists...)">
+      <option name="closed" value="true" />
+      <created>1725099503701</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725099503701</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,51 +161,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="GetCourses endpoint finished (to be corrected later)" />
     <MESSAGE value="GetCourses and GetGroupCourses finished (initially)" />
-    <option name="LAST_COMMIT_MESSAGE" value="GetCourses and GetGroupCourses finished (initially)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs</url>
-          <line>96</line>
-          <properties documentPath="C:\Users\Piotr\RiderProjects\PlanUzApi\PlanUzApi\Services\ScheduleService.cs" containingFunctionPresentation="Method 'GetClassesByGroupUrl'">
-            <startOffsets>
-              <option value="3462" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3518" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs</url>
-          <line>70</line>
-          <properties documentPath="C:\Users\Piotr\RiderProjects\PlanUzApi\PlanUzApi\Services\ScheduleService.cs" containingFunctionPresentation="Method 'GetClassesByGroupUrl'">
-            <startOffsets>
-              <option value="2222" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2421" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs</url>
-          <line>75</line>
-          <properties documentPath="C:\Users\Piotr\RiderProjects\PlanUzApi\PlanUzApi\Services\ScheduleService.cs" containingFunctionPresentation="Method 'GetClassesByGroupUrl'">
-            <startOffsets>
-              <option value="2435" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2472" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="not working properly, to change (manually searching through html nodes, then found out that inner text exists...)" />
+    <option name="LAST_COMMIT_MESSAGE" value="not working properly, to change (manually searching through html nodes, then found out that inner text exists...)" />
   </component>
 </project>
