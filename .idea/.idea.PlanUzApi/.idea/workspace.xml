@@ -9,14 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49eece6d-1466-4560-9013-6af6c1221fd1" name="Changes" comment="GetCourses endpoint finished (to be corrected later)">
-      <change afterPath="$PROJECT_DIR$/PlanUzApi/Models/BasicLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlanUzApi/Models/CourseGroups.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlanUzApi/Models/Group.cs" afterDir="false" />
+    <list default="true" id="49eece6d-1466-4560-9013-6af6c1221fd1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/PlanUzApi/Helpers.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PlanUzApi/Models/ClassSession.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanUzApi/Controllers/ScheduleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Controllers/ScheduleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanUzApi/Models/Course.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Models/Course.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanUzApi/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Result.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanUzApi/Services/Abstraction/IScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Services/Abstraction/IScheduleService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs" afterDir="false" />
     </list>
@@ -24,6 +22,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -35,39 +36,40 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/2f1db20456007c9515068a35a65afdf99af70bc6/src/Mvc/Mvc.Core/src/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2b917c507d64d0980727dbdd83b6585c8f8a0/72/67d41291/DayOfWeek.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2b917c507d64d0980727dbdd83b6585c8f8a0/75/e6c53997/String.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2lO3yXkpNRsb7SUrewjyHvpaPU1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.PlanUzApi: IIS Express.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.PlanUzApi: IIS Express.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Piotr\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Piotr\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Piotr\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Piotr\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Piotr\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Piotr\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.PlanUzApi: IIS Express">
     <configuration name="PlanUzApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/PlanUzApi/PlanUzApi.csproj" />
@@ -123,7 +125,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725037550678</updated>
-      <workItem from="1725037551708" duration="12383000" />
+      <workItem from="1725037551708" duration="15566000" />
+      <workItem from="1725061390142" duration="1057000" />
+      <workItem from="1725093325039" duration="4941000" />
     </task>
     <task id="LOCAL-00001" summary="GetCourses endpoint finished (to be corrected later)">
       <option name="closed" value="true" />
@@ -133,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725045352592</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="GetCourses and GetGroupCourses finished (initially)">
+      <option name="closed" value="true" />
+      <created>1725052707265</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725052707265</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +156,52 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="GetCourses endpoint finished (to be corrected later)" />
-    <option name="LAST_COMMIT_MESSAGE" value="GetCourses endpoint finished (to be corrected later)" />
+    <MESSAGE value="GetCourses and GetGroupCourses finished (initially)" />
+    <option name="LAST_COMMIT_MESSAGE" value="GetCourses and GetGroupCourses finished (initially)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs</url>
+          <line>96</line>
+          <properties documentPath="C:\Users\Piotr\RiderProjects\PlanUzApi\PlanUzApi\Services\ScheduleService.cs" containingFunctionPresentation="Method 'GetClassesByGroupUrl'">
+            <startOffsets>
+              <option value="3462" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3518" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs</url>
+          <line>70</line>
+          <properties documentPath="C:\Users\Piotr\RiderProjects\PlanUzApi\PlanUzApi\Services\ScheduleService.cs" containingFunctionPresentation="Method 'GetClassesByGroupUrl'">
+            <startOffsets>
+              <option value="2222" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2421" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs</url>
+          <line>75</line>
+          <properties documentPath="C:\Users\Piotr\RiderProjects\PlanUzApi\PlanUzApi\Services\ScheduleService.cs" containingFunctionPresentation="Method 'GetClassesByGroupUrl'">
+            <startOffsets>
+              <option value="2435" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2472" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

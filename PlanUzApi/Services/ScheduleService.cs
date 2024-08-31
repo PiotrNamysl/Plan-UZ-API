@@ -2,6 +2,7 @@ using System.Data;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
 using PlanUzApi.Models;
+using PlanUzApi.Services.Abstraction;
 
 namespace PlanUzApi.Services;
 
@@ -9,10 +10,10 @@ public class ScheduleService : IScheduleService
 {
     private HttpClient _httpClient = new HttpClient();
 
-    private List<Course> _courses = new();
+    private List<Course> _courses = [];
     private DateTime _coursesLastUpdate;
 
-    private List<Group> _groups = new();
+    private List<Group> _groups = [];
     private DateTime _groupsLastUpdate;
 
     // public async Task<IResult<string>> GetWholeWebsiteSourceCode(string websiteUrl)
@@ -53,6 +54,68 @@ public class ScheduleService : IScheduleService
         }
 
         return Result<IEnumerable<Group>>.Success(_groups, lastUpdate: _groupsLastUpdate);
+    }
+
+    public async Task<IResult<IEnumerable<ClassSession>>> GetClassesByGroupUrl(string groupUrl)
+    {
+        try
+        {
+            List<ClassSession> groupClasses = [];
+
+            var browser = new HtmlWeb();
+            var htmlDocument = await browser.LoadFromWebAsync(groupUrl);
+
+            var trElements2 = htmlDocument.GetElementbyId("table_details");
+
+            
+            var trElements = trElements2
+                .SelectNodes("//tr")
+                .Where(n => n.OuterHtml.Contains("odd") || n.OuterHtml.Contains("even"))
+                .Select(tr => tr.OuterHtml);
+
+            foreach (var trElement in trElements)
+            {
+                var trElementAsHtmlDoc = new HtmlDocument();
+                trElementAsHtmlDoc.LoadHtml(trElement);
+
+                var trElementAsList = trElementAsHtmlDoc.DocumentNode.SelectNodes("//td").Select(n => n.InnerHtml).ToList();
+                List<string> finalClass = [];
+                foreach (var element in trElementAsList)
+                {
+                    if (element.Contains("<"))
+                    {
+                        var newElement = element.Replace("<label", "<a");
+                        var newElementAsHtmlDoc = new HtmlDocument();
+                        newElementAsHtmlDoc.LoadHtml(newElement);
+                        var finalNewElement = newElementAsHtmlDoc.DocumentNode.SelectNodes("//a").Select(n => n.InnerHtml);
+                        finalClass.Add(finalNewElement.First());
+                    }
+                    else
+                        finalClass.Add(element.Normalize());
+                }
+
+                var typeOfClass = Helpers.GetTypeOfClass(finalClass[4]);
+
+                var classSession = new ClassSession
+                {
+                    Subgroup = finalClass[0],
+                    SinceDateTime = DateTime.Parse(finalClass[1]).ToUniversalTime(),
+                    ToDateTime = DateTime.Parse(finalClass[2]).ToUniversalTime(),
+                    Subject = finalClass[3],
+                    TypeOfClass = typeOfClass,
+                    Teacher = finalClass[5],
+                    Location = finalClass[6]
+                };
+                
+                groupClasses.Add(classSession);
+            }
+            
+            return Result<IEnumerable<ClassSession>>.Success(groupClasses);
+        }
+        catch (Exception exception)
+        {
+            return Result<IEnumerable<ClassSession>>.Error(ResultStatusCode.UnknownError, $"Unexpected error occured: {exception.Message}");
+        }
     }
 
     public async Task<IResult> UpdateCourses()

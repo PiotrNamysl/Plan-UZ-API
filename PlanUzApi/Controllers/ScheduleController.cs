@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PlanUzApi.Models;
+using PlanUzApi.Services.Abstraction;
 
 namespace PlanUzApi.Controllers;
 
@@ -24,4 +25,7 @@ public class ScheduleController : BaseController
 
     [HttpGet("GetCourseGroups")]
     public async Task<IResult<IEnumerable<Group>>> GetCourseGroups() => await _scheduleService.GetCourseGroups();
+    
+    [HttpGet("GetClassesByGroupUrl")]
+    public async Task<IResult<IEnumerable<ClassSession>>> Get() => await _scheduleService.GetClassesByGroupUrl("http://www.plan.uz.zgora.pl/grupy_plan.php?ID=28087");
 }
