@@ -9,9 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49eece6d-1466-4560-9013-6af6c1221fd1" name="Changes" comment="not working properly, to change (manually searching through html nodes, then found out that inner text exists...)">
+    <list default="true" id="49eece6d-1466-4560-9013-6af6c1221fd1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/Controllers/ScheduleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Controllers/ScheduleController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanUzApi/Models/ClassSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Models/ClassSession.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/PlanUzApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/PlanUzApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Utilities/Result.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanUzApi/Services/Abstraction/IScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Services/Abstraction/IScheduleService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlanUzApi/Services/ScheduleService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +38,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/2f1db20456007c9515068a35a65afdf99af70bc6/src/Middleware/CORS/src/Infrastructure/CorsPolicyBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/2f1db20456007c9515068a35a65afdf99af70bc6/src/Mvc/Mvc.Core/src/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2197f89c16cf4c62bb6e8576ed6b03294e910/3a/2d0d0e3a/IResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2b917c507d64d0980727dbdd83b6585c8f8a0/72/67d41291/DayOfWeek.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2b917c507d64d0980727dbdd83b6585c8f8a0/75/e6c53997/String.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -49,6 +58,9 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;.NET Launch Settings Profile.PlanUzApi: IIS Express.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.PlanUzApi: http.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.PlanUzApi: https.executor&quot;: &quot;Debug&quot;,
+    &quot;Publish to folder.Ubuntu.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -66,7 +78,11 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.PlanUzApi: IIS Express">
+  <component name="RunManager" selected=".NET Launch Settings Profile.PlanUzApi: http">
+    <configuration name="Ubuntu" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" include_native_libs_for_self_extract="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" runtime="linux-x64" self_contained="true" target_folder="$PROJECT_DIR$/PlanUzApi/bin/Release/net8.0/linux-x64/publish" target_framework="net8.0" trim_unused_assemblies="true" uuid_high="1507978759957858369" uuid_low="-8291743063574065354" />
+      <method v="2" />
+    </configuration>
     <configuration name="PlanUzApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/PlanUzApi/PlanUzApi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -123,7 +139,15 @@
       <updated>1725037550678</updated>
       <workItem from="1725037551708" duration="15566000" />
       <workItem from="1725061390142" duration="1057000" />
-      <workItem from="1725093325039" duration="7056000" />
+      <workItem from="1725093325039" duration="17006000" />
+      <workItem from="1725271953005" duration="2689000" />
+      <workItem from="1725712053537" duration="3069000" />
+      <workItem from="1726419206831" duration="1605000" />
+      <workItem from="1726501242821" duration="2525000" />
+      <workItem from="1727279234040" duration="1589000" />
+      <workItem from="1727524343165" duration="748000" />
+      <workItem from="1727595757715" duration="3468000" />
+      <workItem from="1727616895434" duration="3235000" />
     </task>
     <task id="LOCAL-00001" summary="GetCourses endpoint finished (to be corrected later)">
       <option name="closed" value="true" />
@@ -149,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725099503701</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="GetClassesByGroupUrl finished">
+      <option name="closed" value="true" />
+      <created>1725101540455</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725101540455</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +194,14 @@
     <MESSAGE value="GetCourses endpoint finished (to be corrected later)" />
     <MESSAGE value="GetCourses and GetGroupCourses finished (initially)" />
     <MESSAGE value="not working properly, to change (manually searching through html nodes, then found out that inner text exists...)" />
-    <option name="LAST_COMMIT_MESSAGE" value="not working properly, to change (manually searching through html nodes, then found out that inner text exists...)" />
+    <MESSAGE value="GetClassesByGroupUrl finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="GetClassesByGroupUrl finished" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#HtmlAgilityPack.HtmlDocument" memberName="DocumentNode" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

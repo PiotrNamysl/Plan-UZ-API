@@ -1,4 +1,4 @@
-namespace PlanUzApi;
+namespace PlanUzApi.Utilities;
 
 public enum ResultStatus
 {

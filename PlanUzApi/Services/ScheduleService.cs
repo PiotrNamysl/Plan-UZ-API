@@ -4,12 +4,14 @@ using HtmlAgilityPack;
 using Newtonsoft.Json;
 using PlanUzApi.Models;
 using PlanUzApi.Services.Abstraction;
+using PlanUzApi.Utilities;
+using IResult = PlanUzApi.Utilities.IResult;
 
 namespace PlanUzApi.Services;
 
 public class ScheduleService : IScheduleService
 {
-    private HttpClient _httpClient = new HttpClient();
+    private readonly HtmlWeb _browser = new HtmlWeb();
 
     private List<Course> _courses = [];
     private DateTime _coursesLastUpdate;
@@ -17,10 +19,14 @@ public class ScheduleService : IScheduleService
     private List<Group> _groups = [];
     private DateTime _groupsLastUpdate;
 
-    // public async Task<IResult<string>> GetWholeWebsiteSourceCode(string websiteUrl)
-    // {
-    //     return Result<string>.Success("");
-    // }
+    public async Task<IResult<string>> GetWholeWebsiteSourceCode(string websiteUrl)
+    {
+        var browser = new HtmlWeb();
+        var htmlDocument = await browser.LoadFromWebAsync(websiteUrl);
+
+        return Result<string>.Success(htmlDocument.Text);
+    }
+
     public async Task<IResult<IEnumerable<Course>>> GetCourses()
     {
         if (!_courses.Any())
@@ -63,31 +69,65 @@ public class ScheduleService : IScheduleService
         {
             List<ClassSession> groupClasses = [];
 
-            var browser = new HtmlWeb();
-            var htmlDocument = await browser.LoadFromWebAsync(groupUrl);
+            var htmlDocument = await _browser.LoadFromWebAsync(groupUrl);
 
-            var classesAsStringList = htmlDocument.GetElementbyId("table_details").InnerText.Split("\r\n\r\n").ToList();
-            classesAsStringList.RemoveAt(0);
-            classesAsStringList.RemoveAt(classesAsStringList.Count - 1);
+            var classesAsString = htmlDocument.GetElementbyId("table_details").InnerText.Split("\r\n\r\n").ToList();
+            classesAsString.RemoveAt(0);
+            classesAsString.RemoveAt(classesAsString.Count - 1);
+            
+            var classesAsHtml = string.Join("", htmlDocument.GetElementbyId("table_details").OuterHtml.Split("\r\n")).Split("</tr>").ToList();
+            classesAsHtml.RemoveAt(0);
+            classesAsHtml.RemoveAt(classesAsString.Count - 1);
 
-            foreach (var item in classesAsStringList)
+            for (var i = 0; i < classesAsString.Count; i++)
             {
-                var classAsList = item.Split("\r\n").ToList().Select(c => c.Replace("  ", "").Replace("&nbsp;", null)).ToList();
-                classAsList.RemoveAt(0);
-                classAsList.RemoveAt(classAsList.Count - 1);
-
-                var newClass = new ClassSession
+                var classAsList = classesAsString[i].Split("\r\n").ToList().Select(c => c.Replace("  ", "").Replace("&nbsp;", null)).ToList();
+                if (classAsList.Count > 4)
                 {
-                    Day = DateOnly.Parse(classAsList[0]),
-                    Subgroup = string.IsNullOrWhiteSpace(classAsList[2]) ? null : classAsList[2],
-                    Since = TimeOnly.Parse(classAsList[3]),
-                    To = TimeOnly.Parse(classAsList[4]),
-                    Subject = classAsList[5],
-                    TypeOfClass = Helpers.GetTypeOfClass(classAsList[6]),
-                    Teacher = classAsList[7],
-                    Location = classAsList[8]
-                };
-                groupClasses.Add(newClass);
+                    classAsList.RemoveAt(0);
+                    classAsList.RemoveAt(classAsList.Count - 1);
+
+                    DateOnly? classDay = null;
+                    TimeOnly? classSince = null;
+                    TimeOnly? classTo = null;
+
+                    if (!string.IsNullOrWhiteSpace(classAsList[0]))
+                    {
+                        classDay = DateOnly.Parse(classAsList[0]);
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(classAsList[3]))
+                    {
+                        classSince = TimeOnly.Parse(classAsList[3]);
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(classAsList[4]))
+                    {
+                        classTo = TimeOnly.Parse(classAsList[4]);
+                    }
+
+                    var newClass = new ClassSession
+                    {
+                        Day = classDay,
+                        Subgroup = string.IsNullOrWhiteSpace(classAsList[2]) ? null : classAsList[2].Trim(),
+                        Since = classSince,
+                        To = classTo,
+                        Subject = classAsList[5].Trim(),
+                        TypeOfClass = Helpers.GetTypeOfClass(classAsList[6]),
+                        Teacher = classAsList[7].Trim(),
+                        Location = classAsList[8].Trim()
+                    };
+
+                    var isClassRemote = classesAsHtml[i].Contains("Zajęcia zdalne");
+                    if (isClassRemote)
+                        newClass.Location = "Zdalnie";
+
+                    groupClasses.Add(newClass);
+                }
+                else
+                {
+                    groupClasses[^1].Location = classAsList[2].Trim();
+                }
             }
 
             return Result<IEnumerable<ClassSession>>.Success(groupClasses);

@@ -270,3 +270,5 @@ __pycache__/
 
 appsettings.Development.json
 appsettings.json
+cert.pfx
+!/appsettings.Development.json
