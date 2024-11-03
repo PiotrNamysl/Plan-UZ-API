@@ -74,7 +74,7 @@ public class ScheduleService : IScheduleService
             var classesAsString = htmlDocument.GetElementbyId("table_details").InnerText.Split("\r\n\r\n").ToList();
             classesAsString.RemoveAt(0);
             classesAsString.RemoveAt(classesAsString.Count - 1);
-            
+
             var classesAsHtml = string.Join("", htmlDocument.GetElementbyId("table_details").OuterHtml.Split("\r\n")).Split("</tr>").ToList();
             classesAsHtml.RemoveAt(0);
             classesAsHtml.RemoveAt(classesAsString.Count - 1);
@@ -92,19 +92,13 @@ public class ScheduleService : IScheduleService
                     TimeOnly? classTo = null;
 
                     if (!string.IsNullOrWhiteSpace(classAsList[0]))
-                    {
                         classDay = DateOnly.Parse(classAsList[0]);
-                    }
 
                     if (!string.IsNullOrWhiteSpace(classAsList[3]))
-                    {
                         classSince = TimeOnly.Parse(classAsList[3]);
-                    }
 
                     if (!string.IsNullOrWhiteSpace(classAsList[4]))
-                    {
                         classTo = TimeOnly.Parse(classAsList[4]);
-                    }
 
                     var newClass = new ClassSession
                     {
@@ -125,9 +119,7 @@ public class ScheduleService : IScheduleService
                     groupClasses.Add(newClass);
                 }
                 else
-                {
                     groupClasses[^1].Location = classAsList[2].Trim();
-                }
             }
 
             return Result<IEnumerable<ClassSession>>.Success(groupClasses);
@@ -179,6 +171,9 @@ public class ScheduleService : IScheduleService
     {
         if (!_courses.Any())
             await Task.Run(async () => await GetCourses());
+
+        _groups.Clear();
+        
         try
         {
             var tasks = _courses.Select(async course =>

@@ -36,7 +36,6 @@ public class ScheduleController : BaseController
         return (await _scheduleService.GetClassesByGroupUrl(websiteUrl)).Data;
     }
 
-    [Authorize]
     [HttpGet("UpdateCourses")]
     public async Task<StatusCodeResult> UpdateCourses()
     {
@@ -45,7 +44,6 @@ public class ScheduleController : BaseController
         return result.IsOkStatusCode() ? StatusCode(200) : StatusCode(500);
     }
 
-    [Authorize]
     [HttpGet("UpdateCourseGroups")]
     public async Task<StatusCodeResult> UpdateCourseGroups()
     {
