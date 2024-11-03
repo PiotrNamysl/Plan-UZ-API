@@ -1,3 +1,5 @@
+using PlanUzApi.Models.Enums;
+
 namespace PlanUzApi.Models;
 
 public class ClassSession
@@ -10,12 +12,4 @@ public class ClassSession
     public TypeOfClass TypeOfClass { get; set; }
     public string? Teacher { get; set; }
     public string? Location { get; set; }
-}
-
-public enum TypeOfClass
-{
-    Lecture,
-    Tutorial,
-    Laboratory,
-    Exam,
 }

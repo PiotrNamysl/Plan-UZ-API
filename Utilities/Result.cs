@@ -66,23 +66,32 @@ public class Result<T>(T data, ResultStatus status, ResultStatusCode statusCode,
     public static Result<T> Success(ResultStatusCode statusCode, string message) => new(null, ResultStatus.Success, statusCode, message, null);
     public static Result<T> Success(T data, ResultStatusCode statusCode) => new(data, ResultStatus.Success, statusCode, string.Empty, null);
     public static Result<T> Success(T data, DateTime lastUpdate) => new(data, ResultStatus.Success, ResultStatusCode.Ok, string.Empty, lastUpdate);
-    public static Result<T> Success(T data, ResultStatusCode statusCode, string message) => new(data, ResultStatus.Success, statusCode, message, null);
+
+    public static Result<T> Success(T data, ResultStatusCode statusCode, string message) =>
+        new(data, ResultStatus.Success, statusCode, message, null);
 
     public static Result<T> Warning(ResultStatusCode statusCode) => new(null, ResultStatus.Warning, statusCode, string.Empty, null);
     public static Result<T> Warning(ResultStatusCode statusCode, string message) => new(null, ResultStatus.Warning, statusCode, message, null);
     public static Result<T> Warning(T data, ResultStatusCode statusCode) => new(data, ResultStatus.Warning, statusCode, string.Empty, null);
-    public static Result<T> Warning(T data, ResultStatusCode statusCode, string message) => new(data, ResultStatus.Warning, statusCode, message, null);
 
-    public static Result<T> Warning(T data, ResultStatusCode statusCode, DateTime lastUpdate) => new(data, ResultStatus.Warning, statusCode, string.Empty, lastUpdate);
+    public static Result<T> Warning(T data, ResultStatusCode statusCode, string message) =>
+        new(data, ResultStatus.Warning, statusCode, message, null);
+
+    public static Result<T> Warning(T data, ResultStatusCode statusCode, DateTime lastUpdate) =>
+        new(data, ResultStatus.Warning, statusCode, string.Empty, lastUpdate);
+
     public static Result<T> Error(ResultStatusCode statusCode) => new(null, ResultStatus.Error, statusCode, string.Empty, null);
     public static Result<T> Error(ResultStatusCode statusCode, string message) => new(null, ResultStatus.Error, statusCode, message, null);
     public static Result<T> Error(T data, ResultStatusCode statusCode) => new(data, ResultStatus.Error, statusCode, string.Empty, null);
     public static Result<T> Error(T data, ResultStatusCode statusCode, string message) => new(data, ResultStatus.Error, statusCode, message, null);
-    public static Result<T> Error(T data, ResultStatusCode statusCode, DateTime lastUpdate) => new(data, ResultStatus.Error, statusCode, string.Empty, lastUpdate);
+
+    public static Result<T> Error(T data, ResultStatusCode statusCode, DateTime lastUpdate) =>
+        new(data, ResultStatus.Error, statusCode, string.Empty, lastUpdate);
 }
 
 public static class ResultStatusCodeExtension
 {
     public static bool IsOkStatusCode(this IResult result) => result.StatusCode == ResultStatusCode.Ok;
     public static bool IsNotOkStatusCode(this IResult result) => result.StatusCode != ResultStatusCode.Ok;
+    public static bool IsFullSuccess(this IResult result) => result.StatusCode == ResultStatusCode.Ok && result.IsSuccess;
 }

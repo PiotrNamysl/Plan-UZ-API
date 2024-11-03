@@ -1,7 +1,4 @@
-using System.Data;
-using System.Globalization;
 using HtmlAgilityPack;
-using Newtonsoft.Json;
 using PlanUzApi.Models;
 using PlanUzApi.Services.Abstraction;
 using PlanUzApi.Utilities;
@@ -11,7 +8,7 @@ namespace PlanUzApi.Services;
 
 public class ScheduleService : IScheduleService
 {
-    private readonly HtmlWeb _browser = new HtmlWeb();
+    private readonly HtmlWeb _browser = new();
 
     private List<Course> _courses = [];
     private DateTime _coursesLastUpdate;
@@ -50,14 +47,9 @@ public class ScheduleService : IScheduleService
         if (!_groups.Any())
         {
             var updateCoursesResult = await UpdateCourseGroups();
-            if (updateCoursesResult.IsSuccess)
-            {
-                return Result<IEnumerable<Group>>.Success(_groups, lastUpdate: _groupsLastUpdate);
-            }
-            else
-            {
-                return Result<IEnumerable<Group>>.Warning(updateCoursesResult.StatusCode, updateCoursesResult.Message);
-            }
+            return updateCoursesResult.IsSuccess
+                ? Result<IEnumerable<Group>>.Success(_groups, lastUpdate: _groupsLastUpdate)
+                : Result<IEnumerable<Group>>.Warning(updateCoursesResult.StatusCode, updateCoursesResult.Message);
         }
 
         return Result<IEnumerable<Group>>.Success(_groups, lastUpdate: _groupsLastUpdate);
@@ -173,7 +165,7 @@ public class ScheduleService : IScheduleService
             await Task.Run(async () => await GetCourses());
 
         _groups.Clear();
-        
+
         try
         {
             var tasks = _courses.Select(async course =>
