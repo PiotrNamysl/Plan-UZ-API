@@ -4,6 +4,9 @@
     <projectFile profileName="IIS Express">PlanUzApi.csproj</projectFile>
     <projectFile profileName="http">PlanUzApi.csproj</projectFile>
     <projectFile profileName="https">PlanUzApi.csproj</projectFile>
+    <projectFile profileName="IIS Express">PlanUzApi/PlanUzApi.csproj</projectFile>
+    <projectFile profileName="http">PlanUzApi/PlanUzApi.csproj</projectFile>
+    <projectFile profileName="https">PlanUzApi/PlanUzApi.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
@@ -11,16 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7f09ccaf-9f9f-4059-b0c3-577f301bcc80" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ScheduleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ScheduleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/BasicLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/BasicLink.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ClassSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ClassSession.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Course.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/CourseGroups.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CourseGroups.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Group.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/Abstraction/IScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Abstraction/IScheduleService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/ScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ScheduleService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +24,11 @@
     <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -47,12 +45,17 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2aade6beb02ea367fd97c4070a4198802fe61c03/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/CertificatePal.Windows.Import.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Piotr/Desktop/PlanUzApi/Models/BasicLink.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2oM12Pj5sGpfVAAYJ7DVpMLWbbp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -151,8 +154,11 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
