@@ -14,6 +14,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7f09ccaf-9f9f-4059-b0c3-577f301bcc80" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ClassSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ClassSession.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/ScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ScheduleService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +151,17 @@
       <workItem from="1731521817045" duration="332000" />
       <workItem from="1731522187335" duration="408000" />
       <workItem from="1732648094097" duration="1580000" />
+      <workItem from="1732650382244" duration="744000" />
     </task>
+    <task id="LOCAL-00001" summary="changes in solution file">
+      <option name="closed" value="true" />
+      <created>1732650527027</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732650527027</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

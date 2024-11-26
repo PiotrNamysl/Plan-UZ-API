@@ -95,8 +95,8 @@ public class ScheduleService : IScheduleService
                         To = classTo,
                         Subject = classAsList[5].Trim(),
                         TypeOfClass = Helpers.GetTypeOfClass(classAsList[6]),
-                        Teacher = classAsList[7].Trim(),
-                        Location = classAsList[8].Trim()
+                        Teacher = string.IsNullOrWhiteSpace(classAsList[7]) ? null : classAsList[7].Trim(),
+                        Location = string.IsNullOrWhiteSpace(classAsList[8]) ? null : classAsList[8].Trim(),
                     };
 
                     var isClassRemote = classesAsHtml[i].Contains("Zajęcia zdalne");
