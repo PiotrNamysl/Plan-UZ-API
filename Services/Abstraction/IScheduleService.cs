@@ -6,10 +6,10 @@ namespace PlanUzApi.Services.Abstraction;
 
 public interface IScheduleService
 {
-    Task<IResult<string>> GetWholeWebsiteSourceCode(string websiteUrl);
-    Task<IResult<IEnumerable<Course>>> GetCourses();
-    Task<IResult<IEnumerable<Group>>> GetCourseGroups();
-    Task<IResult<IEnumerable<ClassSession>>> GetClassesByGroupUrl(string groupUrl);
-    Task<IResult> UpdateCourses();
-    Task<IResult> UpdateCourseGroups();
+    Task<IResult<string>> GetWholeWebsiteSourceCodeAsync(string websiteUrl);
+    Task<IResult<IEnumerable<BasicLink>>> GetCoursesAsync();
+    Task<IResult<IEnumerable<BasicLink>>> GetCourseGroupsAsync();
+    Task<IResult<IEnumerable<ClassSession>>> GetClassesByGroupUrlAsync(string groupUrl);
+    Task<IResult> UpdateCoursesAsync();
+    Task<IResult> UpdateCourseGroupsAsync();
 }

@@ -1,4 +1,5 @@
 <h1>Plan UZ API</h1>
 
-<p>This project has been created for society, so everybody can write it's own application for looking on University of
-Zielona Góra schedule.</p>
+<p>This project was created for the community, allowing everyone to develop their own application for viewing the University of Zielona Góra schedule.
+
+</p> <p><b>The project is currently under development.</b></p>

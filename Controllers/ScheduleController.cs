@@ -9,45 +9,38 @@ using IResult = Microsoft.AspNetCore.Http.IResult;
 namespace PlanUzApi.Controllers;
 
 [ApiController]
-public class ScheduleController : BaseController
+public class ScheduleController(IScheduleService scheduleService) : BaseController
 {
-    private readonly IScheduleService _scheduleService;
-
-    public ScheduleController(IScheduleService scheduleService)
-    {
-        _scheduleService = scheduleService;
-    }
-
     [HttpGet("GetWebsiteSourceCode")]
-    public async Task<string> GetWebsiteSourceCode([FromQuery] string websiteUrl)
+    public async Task<string> GetWebsiteSourceCodeAsync([FromQuery] string websiteUrl)
     {
-        return (await _scheduleService.GetWholeWebsiteSourceCode(websiteUrl)).Data;
+        return (await scheduleService.GetWholeWebsiteSourceCodeAsync(websiteUrl)).Data;
     }
 
     [HttpGet("GetCourses")]
-    public async Task<IEnumerable<Course>> GetCourses() => (await _scheduleService.GetCourses()).Data;
+    public async Task<IEnumerable<BasicLink>> GetCoursesAsync() => (await scheduleService.GetCoursesAsync()).Data;
 
     [HttpGet("GetCourseGroups")]
-    public async Task<IEnumerable<Group>> GetCourseGroups() => (await _scheduleService.GetCourseGroups()).Data;
+    public async Task<IEnumerable<BasicLink>> GetCourseGroupsAsync() => (await scheduleService.GetCourseGroupsAsync()).Data;
 
     [HttpGet("GetClassesByGroupUrl")]
-    public async Task<IEnumerable<ClassSession>> GetClassesByGroupUrl([FromQuery] string websiteUrl)
+    public async Task<IEnumerable<ClassSession>> GetClassesByGroupUrlAsync([FromQuery] string websiteUrl)
     {
-        return (await _scheduleService.GetClassesByGroupUrl(websiteUrl)).Data;
+        return (await scheduleService.GetClassesByGroupUrlAsync(websiteUrl)).Data;
     }
 
     [HttpGet("UpdateCourses")]
-    public async Task<StatusCodeResult> UpdateCourses()
+    public async Task<StatusCodeResult> UpdateCoursesAsync()
     {
-        var result = await _scheduleService.UpdateCourses();
+        var result = await scheduleService.UpdateCoursesAsync();
 
         return result.IsOkStatusCode() ? StatusCode(200) : StatusCode(500);
     }
 
     [HttpGet("UpdateCourseGroups")]
-    public async Task<StatusCodeResult> UpdateCourseGroups()
+    public async Task<StatusCodeResult> UpdateCourseGroupsAsync()
     {
-        var result = await _scheduleService.UpdateCourseGroups();
+        var result = await scheduleService.UpdateCourseGroupsAsync();
 
         return result.IsOkStatusCode() ? StatusCode(200) : StatusCode(500);
     }

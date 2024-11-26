@@ -4,7 +4,7 @@ namespace PlanUzApi.Models;
 
 public class ClassSession
 {
-    public DateOnly? Day { get; set; }
+    public DateOnly? Date { get; set; }
     public TimeOnly? Since { get; set; }
     public TimeOnly? To { get; set; }
     public string? Subgroup { get; set; }

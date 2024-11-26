@@ -1,7 +1,7 @@
 namespace PlanUzApi.Models;
 
-public abstract class BasicLink
+public record BasicLink
 {
-    public string Name { get; set; }
-    public string Url { get; set; }
+    public required string Name { get; init; }
+    public required string Url { get; init; }
 }

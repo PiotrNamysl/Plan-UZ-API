@@ -10,13 +10,13 @@ public class ScheduleService : IScheduleService
 {
     private readonly HtmlWeb _browser = new();
 
-    private List<Course> _courses = [];
+    private List<BasicLink> _courses = [];
     private DateTime _coursesLastUpdate;
 
-    private List<Group> _groups = [];
+    private List<BasicLink> _groups = [];
     private DateTime _groupsLastUpdate;
 
-    public async Task<IResult<string>> GetWholeWebsiteSourceCode(string websiteUrl)
+    public async Task<IResult<string>> GetWholeWebsiteSourceCodeAsync(string websiteUrl)
     {
         var browser = new HtmlWeb();
         var htmlDocument = await browser.LoadFromWebAsync(websiteUrl);
@@ -24,38 +24,33 @@ public class ScheduleService : IScheduleService
         return Result<string>.Success(htmlDocument.Text);
     }
 
-    public async Task<IResult<IEnumerable<Course>>> GetCourses()
+    public async Task<IResult<IEnumerable<BasicLink>>> GetCoursesAsync()
     {
-        if (!_courses.Any())
+        if (_courses.Count == 0)
         {
-            var updateCoursesResult = await UpdateCourses();
-            if (updateCoursesResult.IsSuccess)
-            {
-                return Result<IEnumerable<Course>>.Success(_courses, lastUpdate: _coursesLastUpdate);
-            }
-            else
-            {
-                return Result<IEnumerable<Course>>.Warning(updateCoursesResult.StatusCode, updateCoursesResult.Message);
-            }
-        }
-
-        return Result<IEnumerable<Course>>.Success(_courses, lastUpdate: _coursesLastUpdate);
-    }
-
-    public async Task<IResult<IEnumerable<Group>>> GetCourseGroups()
-    {
-        if (!_groups.Any())
-        {
-            var updateCoursesResult = await UpdateCourseGroups();
+            var updateCoursesResult = await UpdateCoursesAsync();
             return updateCoursesResult.IsSuccess
-                ? Result<IEnumerable<Group>>.Success(_groups, lastUpdate: _groupsLastUpdate)
-                : Result<IEnumerable<Group>>.Warning(updateCoursesResult.StatusCode, updateCoursesResult.Message);
+                ? Result<IEnumerable<BasicLink>>.Success(_courses, lastUpdate: _coursesLastUpdate)
+                : Result<IEnumerable<BasicLink>>.Warning(updateCoursesResult.StatusCode, updateCoursesResult.Message);
         }
 
-        return Result<IEnumerable<Group>>.Success(_groups, lastUpdate: _groupsLastUpdate);
+        return Result<IEnumerable<BasicLink>>.Success(_courses, lastUpdate: _coursesLastUpdate);
     }
 
-    public async Task<IResult<IEnumerable<ClassSession>>> GetClassesByGroupUrl(string groupUrl)
+    public async Task<IResult<IEnumerable<BasicLink>>> GetCourseGroupsAsync()
+    {
+        if (_groups.Count == 0)
+        {
+            var updateCoursesResult = await UpdateCourseGroupsAsync();
+            return updateCoursesResult.IsSuccess
+                ? Result<IEnumerable<BasicLink>>.Success(_groups, lastUpdate: _groupsLastUpdate)
+                : Result<IEnumerable<BasicLink>>.Warning(updateCoursesResult.StatusCode, updateCoursesResult.Message);
+        }
+
+        return Result<IEnumerable<BasicLink>>.Success(_groups, lastUpdate: _groupsLastUpdate);
+    }
+
+    public async Task<IResult<IEnumerable<ClassSession>>> GetClassesByGroupUrlAsync(string groupUrl)
     {
         try
         {
@@ -94,7 +89,7 @@ public class ScheduleService : IScheduleService
 
                     var newClass = new ClassSession
                     {
-                        Day = classDay,
+                        Date = classDay,
                         Subgroup = string.IsNullOrWhiteSpace(classAsList[2]) ? null : classAsList[2].Trim(),
                         Since = classSince,
                         To = classTo,
@@ -122,7 +117,7 @@ public class ScheduleService : IScheduleService
         }
     }
 
-    public async Task<IResult> UpdateCourses()
+    public async Task<IResult> UpdateCoursesAsync()
     {
         var browser = new HtmlWeb();
         try
@@ -134,7 +129,7 @@ public class ScheduleService : IScheduleService
                 .Where(n => n.OuterHtml.Contains("lista_grup_kierunku"))
                 .Select(n => n.OuterHtml);
 
-            var courses = new List<Course>();
+            var courses = new List<BasicLink>();
 
             foreach (var element in aElements)
             {
@@ -142,7 +137,7 @@ public class ScheduleService : IScheduleService
                 var courseGroupsUrl = "http://www.plan.uz.zgora.pl/" +
                                       element.Replace("<a href=", "").Split(">")[0].Replace("\\", "").Replace("\"", "");
 
-                courses.Add(new Course
+                courses.Add(new BasicLink
                 {
                     Name = courseGroupsName,
                     Url = courseGroupsUrl
@@ -159,10 +154,10 @@ public class ScheduleService : IScheduleService
         }
     }
 
-    public async Task<IResult> UpdateCourseGroups()
+    public async Task<IResult> UpdateCourseGroupsAsync()
     {
-        if (!_courses.Any())
-            await Task.Run(async () => await GetCourses());
+        if (_courses.Count is 0)
+            await Task.Run(async () => await GetCoursesAsync());
 
         _groups.Clear();
 
@@ -178,7 +173,7 @@ public class ScheduleService : IScheduleService
                     .Where(n => n.OuterHtml.Contains("grupy_plan"))
                     .Select(n => n.OuterHtml);
 
-                var temporaryGroups = new List<Group>();
+                var temporaryGroups = new List<BasicLink>();
 
                 foreach (var aElement in aElements)
                 {
@@ -189,7 +184,7 @@ public class ScheduleService : IScheduleService
                         .Replace("\\", "")
                         .Replace("\"", "");
 
-                    temporaryGroups.Add(new Group
+                    temporaryGroups.Add(new BasicLink
                     {
                         Name = courseGroupsName,
                         Url = courseGroupsUrl
@@ -197,9 +192,7 @@ public class ScheduleService : IScheduleService
                 }
 
                 lock (_groups)
-                {
                     _groups.AddRange(temporaryGroups);
-                }
             });
 
             await Task.WhenAll(tasks);

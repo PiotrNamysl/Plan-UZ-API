@@ -10,22 +10,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f09ccaf-9f9f-4059-b0c3-577f301bcc80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/Enums/TypeOfClass.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlanUzApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ScheduleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ScheduleController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Helpers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/BasicLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/BasicLink.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/ClassSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ClassSession.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Course.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/CourseGroups.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CourseGroups.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Group.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Abstraction/IScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Abstraction/IScheduleService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/ScheduleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ScheduleService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/Result.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherForecast.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;PiotrNamysl&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/PiotrNamysl/PlanUzApi.git&quot;,
+    &quot;accountId&quot;: &quot;74e20813-deaf-4c1d-ade3-a7317b2cdf31&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2aade6beb02ea367fd97c4070a4198802fe61c03/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/CertificatePal.Windows.Import.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -38,6 +59,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.PlanUzApi: IIS Express.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.PlanUzApi: http.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.PlanUzApi: https.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -45,6 +69,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -55,7 +80,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.PlanUzApi: IIS Express">
+  <component name="RunManager" selected=".NET Launch Settings Profile.PlanUzApi: http">
     <configuration name="PlanUzApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/PlanUzApi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -112,6 +137,14 @@
       <updated>1730664423801</updated>
       <workItem from="1730664425562" duration="707000" />
       <workItem from="1730665242515" duration="326000" />
+      <workItem from="1730736397833" duration="38000" />
+      <workItem from="1731171420485" duration="248000" />
+      <workItem from="1731178597041" duration="663000" />
+      <workItem from="1731237336487" duration="1947000" />
+      <workItem from="1731521180717" duration="169000" />
+      <workItem from="1731521817045" duration="332000" />
+      <workItem from="1731522187335" duration="408000" />
+      <workItem from="1732648094097" duration="1580000" />
     </task>
     <servers />
   </component>
